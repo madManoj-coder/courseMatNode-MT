@@ -1,0 +1,60 @@
+
+<div class="text-center">
+    <ng-container *ngIf="(courObj$ | async) as course; else noCourse">
+        <h2>
+            <strong>
+                {{course.description}}
+            </strong>
+        </h2>
+        <img class="mb-4 img" [src]="course.iconUrl" 
+        [alt]="course.description" [title]="course.description">
+    </ng-container>
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="lessonForm">
+                <mat-form-field class="w-50">
+                    <input matInput type="text" placeholder="search" formControlName="lesson">
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+    <ng-template #noCourse>
+        <p class="alert alert-danger">
+            No course is available with this Id !!!
+        </p>
+    </ng-template>
+    <ng-container>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <table class="table table-bordered" *ngIf="(lesson$ | async) as lesson; else noLesson">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Description</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let less of lesson">
+                        <tr>
+                            <td>
+                                {{less.seqNo}}
+                            </td>
+                            <td>
+                                {{less.description}}
+                            </td>
+                            <td>
+                                {{less.duration}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noLesson>
+        <p class="alert alert-danger">
+            No course is available !!!
+        </p>
+    </ng-template>
+</div>
+

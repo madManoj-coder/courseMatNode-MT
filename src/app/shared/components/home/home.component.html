@@ -1,0 +1,13 @@
+<div class="course-panel text-center">
+    <h2>
+        <strong>All courses</strong>
+    </h2>
+    <mat-tab-group>
+        <mat-tab label="Beginner">
+            <app-course-card *ngFor="let course of beginnerArr" [getCourse]="course"></app-course-card>
+        </mat-tab>
+        <mat-tab label="Advanced">
+            <app-course-card  *ngFor="let course of advanceArr" [getCourse]="course"></app-course-card>
+        </mat-tab>
+    </mat-tab-group>
+</div>

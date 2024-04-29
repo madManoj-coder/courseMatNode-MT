@@ -1,0 +1,16 @@
+<mat-card class="text-center mb-4">
+    <mat-card-header>
+        <mat-card-title>
+            {{getCourse.description}}
+        </mat-card-title>
+        <img class="img-fluid" [src]="getCourse.iconUrl" [alt]="getCourse.description" [title]="getCourse.description">
+    </mat-card-header>
+
+    <mat-card-content class="my-2" [innerHTML]="getCourse.longDescription">
+        
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary" [routerLink]="['course', getCourse.id]">View course</button>
+        <button mat-raised-button color="accent" (click)="onEdit()">Edit course</button>
+    </mat-card-actions>
+</mat-card>

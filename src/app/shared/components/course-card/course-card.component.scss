@@ -1,0 +1,8 @@
+.mat-card-header {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    background-color: rgba(255, 227, 227, 0.77);
+}
